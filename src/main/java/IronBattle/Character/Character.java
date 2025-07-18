@@ -25,22 +25,12 @@ public abstract class Character {
         return idChar;  // Ejemplo: "Char-00427"
     }
 
-    public String getNameChar() {
-        return nameChar;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public boolean isAlive() {
-        return alive;
-    }
+    public String getNameChar() { return nameChar; }
+    public int getHealth() { return health; }
+    public boolean isAlive() { return alive; }
 
     // Setters
-    public void setNameChar(String nameChar) {
-        this.nameChar = nameChar;
-    }
+    public void setNameChar(String nameChar) { this.nameChar = nameChar; }
 
     public void setHealth(int health) {
         if (health <= 0) {
@@ -50,7 +40,5 @@ public abstract class Character {
             this.health = health;
     }
 
-    public void setAlive(boolean alive) {
-        this.alive = alive;
-    }
+    public void setAlive(boolean alive) { this.alive = alive; }
 }
