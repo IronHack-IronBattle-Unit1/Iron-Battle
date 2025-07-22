@@ -3,42 +3,41 @@ package IronBattle.Character;
 import java.util.Random;
 
 public abstract class Character {
-    private final String idChar;  // ID como "Char-00001"
-    private String nameChar;
-    private int health;
-    private boolean alive;
+    private final String id;  // ID como "Char-00001"
+    private String name;
+    private int hp;
+    private boolean isAlive;
 
     private static final int MIN_ID = 1;
     private static final int MAX_ID = 10000;
     private static final Random rand = new Random();
 
     // Constructor
-    public Character(String nameChar, int health, boolean alive) {
-        this.idChar = "Char-" + String.format("%04d", rand.nextInt(MIN_ID, MAX_ID)); // Java 17+
-        this.nameChar = nameChar;
-        this.health = health;
-        this.alive = alive;
+    public Character(String name, int hp) {
+        this.id = "Char-" + String.format("%04d", rand.nextInt(MIN_ID, MAX_ID)); // Java 17+
+        this.name = name;
+        this.hp = hp;
+        this.isAlive = true;
     }
 
     // Getters
-    public String getIdChar() {
-        return idChar;  // Ejemplo: "Char-00427"
+    public String getId() {
+        return id;  // Ejemplo: "Char-00427"
     }
-
-    public String getNameChar() { return nameChar; }
-    public int getHealth() { return health; }
-    public boolean isAlive() { return alive; }
+    public String getName() { return name; }
+    public int getHp() { return hp; }
+    // Subclasses can check if alive
+    protected boolean isAlive() { return isAlive; }
 
     // Setters
-    public void setNameChar(String nameChar) { this.nameChar = nameChar; }
-
-    public void setHealth(int health) {
-        if (health <= 0) {
-            this.health = 0;
+    public void setName(String name) { this.name = name; }
+    public void setHp(int hp) {
+        if (hp <= 0) {
+            this.hp = 0;
             setAlive(false);
         } else
-            this.health = health;
+            this.hp = hp;
     }
-
-    public void setAlive(boolean alive) { this.alive = alive; }
+    // Only this class can change alive status (internal logic)
+    private void setAlive(boolean isAlive) { this.isAlive = isAlive; }
 }
