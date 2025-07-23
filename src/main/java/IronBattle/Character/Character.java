@@ -37,7 +37,7 @@ public abstract class Character {
         } else
             this.hp = hp;
     }
-    public void setAlive(boolean isAlive) { this.isAlive = isAlive; }
+    protected void setAlive(boolean isAlive) { this.isAlive = isAlive; }
 
     public abstract String getStats();
     public abstract String getType();
