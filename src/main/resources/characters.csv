@@ -1,0 +1,5 @@
+type,name,hp,stamina,strength,mana,intelligence
+Warrior,Conan,150,35,8,0,0
+Wizard,Gandalf,80,0,0,40,25
+Warrior,Xena,180,28,9,0,0
+Wizard,Merlin,75,0,0,45,30
