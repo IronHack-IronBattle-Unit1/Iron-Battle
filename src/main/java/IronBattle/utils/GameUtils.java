@@ -1,6 +1,8 @@
 package IronBattle.utils;
 
-import IronBattle.models.*;
+import IronBattle.models.Character;
+import IronBattle.models.Warrior;
+import IronBattle.models.Wizard;
 
 import java.util.Random;
 import java.util.Scanner;
