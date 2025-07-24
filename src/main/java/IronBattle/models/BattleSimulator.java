@@ -5,34 +5,43 @@ import java.util.Scanner;
 public class BattleSimulator {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void fight(Character player1, Character player2) {
-        System.out.println("\nFIGHT BETWEEN:");
-        System.out.println(player1.getStats() + " [ID: " + player1.getId() + "]");
-        System.out.println("VS");
-        System.out.println(player2.getStats() + " [ID: " + player2.getId() + "]");
-
-
+    public static void fight(Character char1, Character char2) {
         int round = 1;
-        while (player1.isAlive() && player2.isAlive()) {
-            System.out.println("\n--- Round " + round + " ---");
-            ((Attacker) player1).attack(player2);
-            ((Attacker) player2).attack(player1);
-            System.out.println(player1.getName() + " HP: " + player1.getHp());
-            System.out.println(player2.getName() + " HP: " + player2.getHp());
 
-            System.out.println("\nPress SPACE then ENTER to continue to next round...");
-            String input = scanner.nextLine();
-            round++;
+        while (char1.isAlive() && char2.isAlive()) {
+            System.out.printf("\n=== ROUND %d ===%n", round++);
+
+
+            System.out.println("\n" + char1.getName() + "'s turn:");
+            ((Attacker) char1).attack(char2);
+
+
+
+            if (!char2.isAlive()) {
+                break;
+            }
+
+
+            System.out.println("\n" + char2.getName() + "'s turn:");
+            ((Attacker) char2).attack(char1);
+
+
+            System.out.printf("\nAfter round %d:%n", round-1);
+            System.out.printf("%s HP: %d | %s HP: %d%n",
+                    char1.getName(), char1.getHp(),
+                    char2.getName(), char2.getHp());
         }
 
-        System.out.println("\n===== Battle Over =====");
-        if (!player1.isAlive() && !player2.isAlive()) {
-            System.out.println("It's a tie! Restarting battle...");
-            fight(player1, player2);
-        } else if (player1.isAlive()) {
-            System.out.println("Winner: " + player1.getName() + " the " + player1.getType());
+        // Determine winner
+        System.out.println("\n=== BATTLE END ===");
+        if (!char1.isAlive() && !char2.isAlive()) {
+            System.out.println("It's a tie! Both warriors have fallen.");
+        } else if (!char1.isAlive()) {
+            System.out.printf("%s (%s) wins!%n", char2.getName(),
+                    char2 instanceof Warrior ? "Warrior" : "Wizard");
         } else {
-            System.out.println("Winner: " + player2.getName() + " the " + player2.getType());
+            System.out.printf("%s (%s) wins!%n", char1.getName(),
+                    char1 instanceof Warrior ? "Warrior" : "Wizard");
         }
     }
 }

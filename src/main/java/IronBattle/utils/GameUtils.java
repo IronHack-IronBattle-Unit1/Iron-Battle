@@ -21,18 +21,23 @@ public class GameUtils {
 
     public static int getValidatedIntInput(String message, int min, int max) {
         int input = -1;
-        while (input < min || input > max) {
+        while (true) {
             System.out.print(message);
             if (sc.hasNextInt()) {
                 input = sc.nextInt();
                 sc.nextLine();
+                if (input >= min && input <= max) {
+                    return input;
+                } else {
+                    System.out.println("⚠️ Invalid input. Please enter a number between " + min + " and " + max + ".");
+                }
             } else {
                 System.out.println("⚠️ Invalid input. Please enter a number.");
                 sc.nextLine();
             }
         }
-        return input;
     }
+
 
     public static String prompt(String message) {
         System.out.print(message);
