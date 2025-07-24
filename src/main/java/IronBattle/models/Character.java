@@ -39,5 +39,8 @@ public abstract class Character {
             this.hp = hp;
     }
     // Only this class can change alive status (internal logic)
-    private void setAlive(boolean isAlive) { this.isAlive = isAlive; }
+    protected void setAlive(boolean isAlive) { this.isAlive = isAlive; }
+
+    public abstract String getStats();
+    public abstract String getType();
 }
