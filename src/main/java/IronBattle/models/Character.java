@@ -1,4 +1,5 @@
-package IronBattle.Character;
+package IronBattle.models;
+
 import java.util.Random;
 
 public abstract class Character {
@@ -26,7 +27,7 @@ public abstract class Character {
     public String getName() { return name; }
     public int getHp() { return hp; }
     // Subclasses can check if alive
-    public boolean isAlive() { return isAlive; }
+    protected boolean isAlive() { return isAlive; }
 
     // Setters
     public void setName(String name) { this.name = name; }
@@ -37,6 +38,7 @@ public abstract class Character {
         } else
             this.hp = hp;
     }
+    // Only this class can change alive status (internal logic)
     protected void setAlive(boolean isAlive) { this.isAlive = isAlive; }
 
     public abstract String getStats();

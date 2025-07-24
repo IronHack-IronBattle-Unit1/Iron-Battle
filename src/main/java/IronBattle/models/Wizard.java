@@ -1,4 +1,4 @@
-package IronBattle.Character;
+package IronBattle.models;
 
 import java.util.Random;
 

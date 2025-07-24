@@ -1,8 +1,8 @@
-package IronBattle.Character;
+package IronBattle.models;
 
 import java.util.Random;
 
-public class Warrior extends Character implements Attacker {
+public class Warrior extends IronBattle.models.Character implements Attacker {
     private int stamina;
     private int strength;
     private static final Random random = new Random();
@@ -29,7 +29,7 @@ public class Warrior extends Character implements Attacker {
 
 
     @Override
-    public void attack(Character target) {
+    public void attack(IronBattle.models.Character target) {
         if (!this.isAlive()) {
             System.out.println(getName() + " is dead and can't attack.");
             return;
