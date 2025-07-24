@@ -38,6 +38,9 @@ public class Main {
                     c1 = GameUtils.createRandomCharacter("RandomHero1");
                     c2 = GameUtils.createRandomCharacter("RandomHero2");
                     break;
+
+                default:
+                    System.out.println("⚠️ Invalid option. Please try again.");
             }
 
             GameUtils.showInitialStats(c1, c2);
