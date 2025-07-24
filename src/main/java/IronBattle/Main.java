@@ -2,8 +2,8 @@ package IronBattle;
 
 import IronBattle.utils.GameUtils;
 import IronBattle.models.Character;
-//import IronBattle.models.CharacterImporter;
-//import IronBattle.models.BattleSimulator;
+import IronBattle.models.CharacterImporter;
+import IronBattle.models.BattleSimulator;
 
 import java.util.List;
 
@@ -23,15 +23,16 @@ public class Main {
                     c2 = GameUtils.createCharacterFromInput(GameUtils.prompt("Enter name for Character 2: "));
                     break;
 
-//                case 2:
-//                    List<Character> imported = CharacterImporter.importFromCSV();
-//                    if (imported.size() < 2) {
-//                        System.out.println("❌ Not enough characters in CSV to start a battle.");
-//                        continue;
-//                    }
-//                    c1 = imported.get(0);
-//                    c2 = imported.get(1);
-//                    break;
+                case 2:
+                    List<Character> imported = CharacterImporter.importFromCSV();
+                    System.out.println(imported);
+                    if (imported.size() < 2) {
+                        System.out.println("❌ Not enough characters in CSV to start a battle.");
+                        continue;
+                    }
+                    c1 = imported.get(0);
+                    c2 = imported.get(1);
+                    break;
 
                 case 3:
                     c1 = GameUtils.createRandomCharacter("RandomHero1");
@@ -40,7 +41,7 @@ public class Main {
             }
 
             GameUtils.showInitialStats(c1, c2);
-//            BattleSimulator.fight(c1, c2);
+            BattleSimulator.fight(c1, c2);
 
             continuePlaying = GameUtils.askToRepeat();
         }
