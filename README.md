@@ -98,15 +98,17 @@ A basic text-based RPG battle simulator built in Java. Two characters — either
 ## 🧪 Sample Menu
 
 === RPG Battle Simulator ===
+
 Choose an option:
 
-1-Manual character creation
+  1.Manual character creation
 
-2-Import characters from CSV
+  2.Import characters from CSV
 
-3-Auto-generate and simulate battle
+  3.Auto-generate and simulate battle
 
 ## 📦 CSV Import Format
 
 Thor,Warrior,150,40,8
+
 Gandalf,Wizard,90,45,42
