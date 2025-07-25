@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CharacterImporter {
-//    private static final String FILE_PATH = "src/main/resources/characters.csv";
-private static final String FILE_PATH = "/Users/ramix/WebDev/Iron_Battle/Iron-Battle/src/main/java/IronBattle/characters.csv";
+    private static final String FILE_PATH = "src/main/java/IronBattle/characters.csv";
 
     public static List<Character> importFromCSV() {
         List<Character> characters = new ArrayList<>();
